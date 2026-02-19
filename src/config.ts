@@ -29,7 +29,8 @@ export const navBarLinks: NavBarLink[] = [
   },
   {
     title: "Blog",
-    url: "/blog",
+    url: "https://medium.com/@rello4585",
+    external: true,
   },
 ];
 
@@ -51,7 +52,7 @@ export const socialLinks: SocialLink[] = [
     url: "https://medium.com/@rello4585",
     icon: "mdi:medium",
     external: true,
-  }
+  },
 ];
 
 // Home (/)
@@ -59,16 +60,16 @@ export const homePageContent: HomePageContent = {
   seo: {
     title: "Ruthwik Arepelly | AI Product Manager",
     description:
-      "AI Product Manager with 7+ years of 0→1 experience building B2B SaaS, Fintech, and AI products. Specializing in RAG, Agentic Pipelines, and reasoning transparency.",
+      "AI Product Manager specializing in RAG, Agentic Pipelines, and Evaluation-Driven Systems for B2B SaaS and Fintech.",
     image: identity.logo,
   },
-  role: "AI Product Manager",
+  role: "AI Product Manager — B2B SaaS, Fintech, Evaluation-Driven Systems",
   description:
-    "I build high-impact AI systems for B2B SaaS and Fintech. From scaling edtech platforms to $100K ARR to architecting reasoning-transparency layers for GPT-4 Vision pipelines, I focus on reliability, unit economics, and human-centric AI.",
+    "I am an AI Product Manager with 7+ years of 0→1 experience building products. I specialize in shipping evaluation-first AI products, including RAG applications, agents, and decision-support tools. I focus on reliability, reasoning transparency, and unit economics over AI hype.",
   socialLinks: socialLinks,
   links: [
     {
-      title: "View My Work",
+      title: "View Projects",
       url: "/projects",
     },
     {
@@ -86,7 +87,7 @@ export const aboutPageContent: AboutPageContent = {
       "AI Product Manager specializing in RAG, Agentic Pipelines, and reasoning transparency.",
     image: identity.logo,
   },
-  subtitle: "AI Product Manager — B2B SaaS, Fintech, Evaluation Driven Systems",
+  subtitle: "AI Product Manager — B2B SaaS, Fintech, Evaluation-Driven Systems",
   about: {
     description: `
 AI Product Manager with seven+ years of 0→1 experience building B2B SaaS, Fintech, and AI products. I've scaled platforms to 10,000+ users and $100K ARR by prioritizing reliability, reasoning transparency, and unit economics over AI hype.
@@ -159,38 +160,45 @@ export const projectsPageContent: ProjectPageContent = {
   projects: [
     {
       title: "ReceiptIQ",
-      description: "AI-powered receipt extraction and finance dashboard using GPT-4o Vision. Reduced inference costs by ~40%.",
+      description: "AI-powered receipt extraction and finance dashboard using GPT-4o Vision for 95% accuracy.",
       image: "/demo-2.jpg",
       year: "2024",
       url: "https://github.com/Ruthwik-Data/receiptiq",
     },
     {
-      title: "PennyPal + Zenny",
-      description: "Student finance assistant with conversational voice/text interface delivering real-time spending nudges.",
+      title: "PennyPal",
+      description: "GenAI financial companion with 90% voice intent recognition accuracy.",
       image: "/demo-2.jpg",
       year: "2024",
       url: "https://github.com/Ruthwik-Data/pennypal",
     },
     {
       title: "Memora",
-      description: "AI-native digital memory tool that transforms screenshots into a searchable database using semantic vision.",
+      description: "Intelligent snapshot organizer that turns loose screenshots into searchable memories.",
       image: "/demo-2.jpg",
       year: "2024",
       url: "https://github.com/Ruthwik-Data/memora",
     },
     {
+      title: "Warmlist",
+      description: "Warm outreach tracker for founders and PMs to track high-intent leads.",
+      image: "/demo-2.jpg",
+      year: "2024",
+      url: "https://github.com/Ruthwik-Data/warmlist",
+    },
+    {
+      title: "SugarShield",
+      description: "Vision-based food analysis with transparency and explainability for health management.",
+      image: "/demo-2.jpg",
+      year: "2024",
+      url: "https://github.com/Ruthwik-Data/sugarshield",
+    },
+    {
       title: "SleepSense",
-      description: "AI-driven sleep coaching app for Google Gemini API Competition. Analyzes habits for personalized insights.",
+      description: "AI-driven sleep coaching application built with TypeScript.",
       image: "/demo-2.jpg",
       year: "2024",
       url: "https://github.com/Ruthwik-Data/sleepsense",
-    },
-    {
-      title: "Photon Edu Fintech",
-      description: "B2B SaaS edtech platform serving 75+ schools and 10,000+ students. Scaled to $100K ARR.",
-      image: "/demo-2.jpg",
-      year: "2018",
-      url: "https://github.com/Ruthwik-Data",
     },
   ],
 };
@@ -204,3 +212,17 @@ export const blogPageContent: BlogPageContent = {
   },
   subtitle: "Selected Writing from Medium",
 };
+
+export const skills = [
+  "LLM APIs",
+  "RAG Pipelines",
+  "Agentic Workflows",
+  "GPT-4o Vision",
+  "TypeScript",
+  "Python",
+  "Next.js",
+  "Product Strategy",
+  "B2B SaaS",
+  "Fintech",
+  "Evaluation Frameworks"
+];

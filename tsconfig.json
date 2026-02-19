@@ -10,7 +10,7 @@
     "jsxImportSource": "react",
     "strict": true,
     "skipLibCheck": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowJs": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
