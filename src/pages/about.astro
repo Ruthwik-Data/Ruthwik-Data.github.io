@@ -41,14 +41,11 @@ const connectDescription = marked.parse(aboutPageContent.connect.description)
       <div class="w-[280px] h-[350px] bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/5 -rotate-3 overflow-hidden group">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
         <span class="text-zinc-600 text-xs font-medium uppercase tracking-widest z-20">Photo 01</span>
-        {/* Replace public/profile-placeholder.jpg to see your image here */}
-        <img src={aboutPageContent.about.image_l.url} class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700" onerror="this.style.display='none'" />
+        <img src={aboutPageContent.about.image_l.url} class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'" />
       </div>
       <div class="w-[200px] h-[300px] bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/5 rotate-6 overflow-hidden group mt-10 min-[410px]:mt-0">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-        <span class="text-zinc-600 text-[10px] font-medium uppercase tracking-widest z-20">Photo 02</span>
-         {/* Replace public/profile-placeholder.jpg to see your image here */}
-        <img src={aboutPageContent.about.image_r.url} class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:scale-110 transition-transform duration-700" onerror="this.style.display='none'" />
+        <img src={aboutPageContent.about.image_r.url} class="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" onerror="this.style.display='none'" />
       </div>
     </div>
   </section>

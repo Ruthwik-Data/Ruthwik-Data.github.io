@@ -42,16 +42,13 @@ try {
     <p class="opacity-60 mb-10">{homePageContent.role}</p>
     <div class="flex flex-col min-[520px]:flex-row gap-6 mb-8">
       <div class="rounded-full w-[100px] h-[100px] bg-zinc-800 flex items-center justify-center overflow-hidden border border-white/10">
-        {identity.logo.startsWith('http') || identity.logo.includes('.') ? (
-          <img
-            src={identity.logo}
-            alt={identity.name}
-            class="w-full h-full object-cover opacity-50"
-            onerror="this.style.display='none'"
-          />
-        ) : (
-          <span class="text-zinc-500 text-xs text-center px-2">Photo Placeholder</span>
-        )}
+        <img
+          src={identity.logo}
+          alt={identity.name}
+          class="w-full h-full object-cover"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+        />
+        <span class="text-zinc-500 text-xs text-center px-2 hidden">Photo Placeholder</span>
       </div>
       <div class="group flex flex-col justify-center gap-2 w-fit">
         {
