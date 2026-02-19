@@ -13,17 +13,23 @@ try {
   );
   const data = await response.json();
   if (data.status === "ok") {
-    mediumPosts = data.items.slice(0, 4).map((post) => ({
-      title: post.title,
-      pubDate: new Date(post.pubDate).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      }),
-      description: post.content.replace(/<[^>]*>/g, "").slice(0, 120) + "...",
-      link: post.link,
-      image: post.thumbnail || "/logo.webp", // Fallback to logo if no thumbnail
-    }));
+      mediumPosts = data.items.slice(0, 4).map((post) => {
+        // Extract first image from content if thumbnail is missing
+        const imgMatch = post.content.match(/<img[^>]+src="([^">]+)"/);
+        const firstImg = imgMatch ? imgMatch[1] : null;
+        
+        return {
+          title: post.title,
+          pubDate: new Date(post.pubDate).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          }),
+          description: post.content.replace(/<[^>]*>/g, "").slice(0, 120) + "...",
+          link: post.link,
+          image: post.thumbnail || firstImg || "/logo.webp",
+        };
+      });
   }
 } catch (error) {
   console.error("Error fetching Medium posts:", error);
