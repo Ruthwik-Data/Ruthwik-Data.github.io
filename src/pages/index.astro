@@ -13,7 +13,7 @@ try {
   );
   const data = await response.json();
   if (data.status === "ok") {
-      mediumPosts = data.items.slice(0, 4).map((post) => {
+      mediumPosts = data.items.slice(0, 4).map((post: any) => {
         // Extract first image from content if thumbnail is missing
         const imgMatch = post.content.match(/<img[^>]+src="([^">]+)"/);
         const firstImg = imgMatch ? imgMatch[1] : null;
@@ -97,7 +97,7 @@ try {
     <div class="grid grid-cols-1 gap-8 mb-10">
       {
         mediumPosts.length > 0 ? (
-          mediumPosts.map((post) => (
+          mediumPosts.map((post: any) => (
             <a href={post.link} target="_blank" class="post group flex flex-col sm:flex-row gap-6 p-4 -mx-4 rounded-2xl hover:bg-white/[0.03] transition-all border border-transparent hover:border-white/5">
               <div class="w-full sm:w-32 h-24 rounded-xl overflow-hidden bg-zinc-900 flex-shrink-0 border border-white/5">
                 <img src={post.image} alt={post.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
