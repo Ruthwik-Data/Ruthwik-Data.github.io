@@ -19,7 +19,8 @@
       "DOM"
     ],
     "target": "ESNext",
-    "module": "ESNext"
+    "module": "ESNext",
+    "noEmit": true
   },
   "include": [
     ".astro/types.d.ts",
