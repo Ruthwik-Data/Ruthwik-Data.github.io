@@ -1,18 +1,33 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import { homePageContent, identity, skills } from "../config";
+import { homePageContent, identity, skillCategories } from "../config";
 import SocialLink from "../components/SocialLink.astro";
 import Link from "../components/Link.astro";
-import { getCollection } from "astro:content";
 
-const posts = await getCollection("posts");
-posts.sort((a, b) => {
-  const dateA = new Date(a.data.pubDate).getTime();
-  const dateB = new Date(b.data.pubDate).getTime();
-  return dateB - dateA;
-});
-const recentPosts = posts.slice(0, 2);
+// Fetch Medium posts
+let mediumPosts = [];
+try {
+  const response = await fetch(
+    `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@rello4585`
+  );
+  const data = await response.json();
+  if (data.status === "ok") {
+    mediumPosts = data.items.slice(0, 4).map((post) => ({
+      title: post.title,
+      pubDate: new Date(post.pubDate).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      }),
+      description: post.content.replace(/<[^>]*>/g, "").slice(0, 120) + "...",
+      link: post.link,
+      image: post.thumbnail || "/logo.webp", // Fallback to logo if no thumbnail
+    }));
+  }
+} catch (error) {
+  console.error("Error fetching Medium posts:", error);
+}
 ---
 
 <Layout seo={homePageContent.seo}>
@@ -20,13 +35,18 @@ const recentPosts = posts.slice(0, 2);
     <h1 class="font-bold text-3xl mb-1">{identity.name}</h1>
     <p class="opacity-60 mb-10">{homePageContent.role}</p>
     <div class="flex flex-col min-[520px]:flex-row gap-6 mb-8">
-      <Image
-        src={identity.logo}
-        alt={identity.name}
-        width={100}
-        height={100}
-        class="rounded-full w-[100px] h-[100px] object-cover"
-      />
+      <div class="rounded-full w-[100px] h-[100px] bg-zinc-800 flex items-center justify-center overflow-hidden border border-white/10">
+        {identity.logo.startsWith('http') || identity.logo.includes('.') ? (
+          <img
+            src={identity.logo}
+            alt={identity.name}
+            class="w-full h-full object-cover opacity-50"
+            onerror="this.style.display='none'"
+          />
+        ) : (
+          <span class="text-zinc-500 text-xs text-center px-2">Photo Placeholder</span>
+        )}
+      </div>
       <div class="group flex flex-col justify-center gap-2 w-fit">
         {
           homePageContent.socialLinks.map((link) => (
@@ -41,21 +61,23 @@ const recentPosts = posts.slice(0, 2);
       </div>
     </div>
     
-    <p class="max-w-md mb-8">
+    <p class="max-w-md mb-12 text-zinc-300 leading-relaxed">
       {homePageContent.description}
     </p>
 
-    <div class="mb-10">
-      <h2 class="text-sm font-bold opacity-60 mb-4 uppercase tracking-wider text-white">Expertise</h2>
-      <div class="flex flex-wrap gap-2">
-        {
-          skills.map((skill) => (
-            <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-medium text-white opacity-80 hover:opacity-100 transition-opacity border border-white/5">
-              {skill}
-            </span>
-          ))
-        }
-      </div>
+    <div class="mb-14">
+      {skillCategories.map((category) => (
+        <div class="mb-6 last:mb-0">
+          <h2 class="text-[10px] font-bold opacity-40 mb-3 uppercase tracking-[0.2em] text-white">{category.title}</h2>
+          <div class="flex flex-wrap gap-2">
+            {category.skills.map((skill) => (
+              <span class="px-3 py-1 bg-white/5 rounded-full text-[11px] font-medium text-zinc-400 border border-white/5 hover:border-white/20 hover:text-white transition-all cursor-default">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
 
     <div class="flex items-center gap-4 group w-fit">
@@ -67,38 +89,47 @@ const recentPosts = posts.slice(0, 2);
     </div>
   </section>
 
-  <section class="mt-20 max-w-2xl mx-auto px-6">
-    <h2 class="mb-8 font-bold text-xl text-white">Recent Articles</h2>
-    <div class="grid grid-cols-1 gap-10 sm:gap-6 mb-10">
+  <section class="mt-28 max-w-2xl mx-auto px-6">
+    <h2 class="mb-8 font-bold text-xl text-white">Selected Writing</h2>
+    <div class="grid grid-cols-1 gap-8 mb-10">
       {
-        recentPosts.map((post) => (
-          <a href={`/blog/${post.id}`} class="post group p-4 -mx-4 rounded-xl hover:bg-white/5 transition-colors">
-            <div class="sm:my-auto">
-              <p class="opacity-60 mb-2 text-sm text-white">
-                {post.data.pubDate.toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </p>
-              <h3 class="font-medium text-white group-hover:underline underline-offset-4 decoration-white/30 truncate">
-                {post.data.title}
-              </h3>
-              <p class="text-sm opacity-60 text-white mt-1 line-clamp-1">
-                {post.data.description}
-              </p>
-            </div>
-          </a>
-        ))
+        mediumPosts.length > 0 ? (
+          mediumPosts.map((post) => (
+            <a href={post.link} target="_blank" class="post group flex flex-col sm:flex-row gap-6 p-4 -mx-4 rounded-2xl hover:bg-white/[0.03] transition-all border border-transparent hover:border-white/5">
+              <div class="w-full sm:w-32 h-24 rounded-xl overflow-hidden bg-zinc-900 flex-shrink-0 border border-white/5">
+                <img src={post.image} alt={post.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div class="flex flex-col justify-center min-w-0">
+                <p class="opacity-40 mb-2 text-[11px] font-medium tracking-wide text-white uppercase">
+                  {post.pubDate}
+                </p>
+                <h3 class="font-semibold text-zinc-100 group-hover:text-white transition-colors mb-2 line-clamp-2 leading-snug">
+                  {post.title}
+                </h3>
+                <p class="text-[13px] opacity-50 text-zinc-400 line-clamp-1 mb-4">
+                  {post.description}
+                </p>
+                <span class="text-[11px] font-bold text-white/40 group-hover:text-white transition-colors flex items-center">
+                  Read on Medium 
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1 translate-y-[0.5px] group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </a>
+          ))
+        ) : (
+          <p class="opacity-50 italic">Fetching latest articles from Medium...</p>
+        )
       }
     </div>
-    <div class="text-center">
+    <div class="text-center mt-12">
       <a
         href="https://medium.com/@rello4585"
         target="_blank"
-        class="text-sm underline underline-offset-4 opacity-60 hover:opacity-100 transition-opacity text-white"
-        >View more on Medium</a
-      >
+        class="text-xs font-bold uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity text-white flex items-center justify-center gap-2"
+        >
+        All Articles 
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      </a>
     </div>
   </section>
 </Layout>

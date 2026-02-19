@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import { aboutPageContent, skills } from "../config";
+import { aboutPageContent, skillCategories } from "../config";
 import ResumeItem from "../components/ResumeItem.astro";
 import SocialLinkBox from "../components/SocialLinkBox.astro";
 import {marked} from "marked"
@@ -15,57 +15,63 @@ const connectDescription = marked.parse(aboutPageContent.connect.description)
   <section class="mt-10 max-w-2xl mx-auto px-6">
     <h1 class="font-bold text-3xl mb-1">About</h1>
     <p class="opacity-60 mb-10">{aboutPageContent.subtitle}</p>
-    <div class="mb-14">
+    <div class="mb-14 text-zinc-300 leading-relaxed">
       <Fragment set:html={pageDescription} />
     </div>
 
-    <div class="mb-14">
-      <h2 class="text-sm font-bold opacity-60 mb-4 uppercase tracking-wider text-white">Technical Skills & Expertise</h2>
-      <div class="flex flex-wrap gap-2">
-        {
-          skills.map((skill) => (
-            <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-medium text-white opacity-80 hover:opacity-100 transition-opacity border border-white/5">
-              {skill}
-            </span>
-          ))
-        }
+    <div class="mb-20">
+      <h2 class="text-xs font-bold opacity-40 mb-6 uppercase tracking-[0.2em] text-white">Skills & Expertise</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {skillCategories.map((category) => (
+          <div class="space-y-4">
+            <h3 class="text-[11px] font-bold opacity-60 uppercase tracking-wider text-white border-l-2 border-white/20 pl-3">{category.title}</h3>
+            <div class="flex flex-wrap gap-2">
+              {category.skills.map((skill) => (
+                <span class="px-3 py-1 bg-white/5 rounded-lg text-[11px] font-medium text-zinc-400 border border-white/5 transition-all hover:bg-white/10 hover:text-white">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
-    <div class="flex flex-col min-[410px]:flex-row">
-      <Image
-        src={aboutPageContent.about.image_l.url}
-        alt={aboutPageContent.about.image_l.alt}
-        width={350}
-        height={250}
-        class="w-[350px] h-[250px] object-cover rounded-xl -rotate-6"
-      />
-      <Image
-        src={aboutPageContent.about.image_r.url}
-        alt={aboutPageContent.about.image_r.alt}
-        width={150}
-        height={250}
-        class="w-[150px] h-[250px] object-cover rounded-xl rotate-6 mx-auto sm:ml-auto"
-      />
+
+    <div class="flex flex-col min-[410px]:flex-row gap-8 items-center justify-center">
+      <div class="w-[280px] h-[350px] bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/5 -rotate-3 overflow-hidden group">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+        <span class="text-zinc-600 text-xs font-medium uppercase tracking-widest z-20">Photo 01</span>
+        {/* Replace public/profile-placeholder.jpg to see your image here */}
+        <img src={aboutPageContent.about.image_l.url} class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700" onerror="this.style.display='none'" />
+      </div>
+      <div class="w-[200px] h-[300px] bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/5 rotate-6 overflow-hidden group mt-10 min-[410px]:mt-0">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+        <span class="text-zinc-600 text-[10px] font-medium uppercase tracking-widest z-20">Photo 02</span>
+         {/* Replace public/profile-placeholder.jpg to see your image here */}
+        <img src={aboutPageContent.about.image_r.url} class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:scale-110 transition-transform duration-700" onerror="this.style.display='none'" />
+      </div>
     </div>
   </section>
-  <section class="my-20 mt-32 max-w-2xl mx-auto px-6 sm:flex sm:gap-16">
-    <h2 class="mb-8 sm:mb-0 opacity-60">Work</h2>
-    <div>
-      <div class="mb-6">
+
+  <section class="my-32 max-w-2xl mx-auto px-6 sm:flex sm:gap-16">
+    <h2 class="mb-8 sm:mb-0 opacity-40 uppercase text-[11px] font-bold tracking-[0.2em] pt-1">Work</h2>
+    <div class="flex-1">
+      <div class="mb-10 text-zinc-400 text-sm italic">
         <Fragment set:html={workDescription} />
       </div>
-      <div class="grid grid-cols-1 group">
+      <div class="grid grid-cols-1 group gap-6">
         {aboutPageContent.work.items.map((item) => <ResumeItem {...item} />)}
       </div>
     </div>
   </section>
-  <section class="mt-32 max-w-2xl mx-auto px-6 sm:flex sm:gap-16">
-    <h2 class="mb-8 sm:mb-0 opacity-60">Connect</h2>
-    <div>
-      <div class="mb-6">
+
+  <section class="mt-32 mb-20 max-w-2xl mx-auto px-6 sm:flex sm:gap-16">
+    <h2 class="mb-8 sm:mb-0 opacity-40 uppercase text-[11px] font-bold tracking-[0.2em] pt-1 text-white">Connect</h2>
+    <div class="flex-1">
+      <div class="mb-10 text-zinc-400 text-sm">
         <Fragment set:html={connectDescription} />
       </div>
-      <div class="grid grid-cols-2 gap-2 group">
+      <div class="grid grid-cols-2 gap-3">
         {
           aboutPageContent.connect.links.map((item) => (
             <SocialLinkBox {...item} />

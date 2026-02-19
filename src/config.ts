@@ -10,7 +10,8 @@ import type {
 
 export const identity: Identity = {
   name: "Ruthwik Arepelly",
-  logo: "/ruthwik.jpg",
+  // REPLACE THIS FILE: Upload your photo to public/profile.jpg to see it here
+  logo: "/profile-placeholder.jpg",
   email: "ruthwikarepelly2@gmail.com",
 };
 
@@ -65,7 +66,7 @@ export const homePageContent: HomePageContent = {
   },
   role: "AI Product Manager — B2B SaaS, Fintech, Evaluation-Driven Systems",
   description:
-    "I am an AI Product Manager with 7+ years of 0→1 experience building products. I specialize in shipping evaluation-first AI products, including RAG applications, agents, and decision-support tools. I focus on reliability, reasoning transparency, and unit economics over AI hype.",
+    "I am an experienced AI Product Manager specializing in building 0→1 products. I focus on shipping evaluation-first AI applications, including RAG systems, agents, and decision-support tools, prioritizing reliability and unit economics.",
   socialLinks: socialLinks,
   links: [
     {
@@ -90,15 +91,15 @@ export const aboutPageContent: AboutPageContent = {
   subtitle: "AI Product Manager — B2B SaaS, Fintech, Evaluation-Driven Systems",
   about: {
     description: `
-AI Product Manager with seven+ years of 0→1 experience building B2B SaaS, Fintech, and AI products. I've scaled platforms to 10,000+ users and $100K ARR by prioritizing reliability, reasoning transparency, and unit economics over AI hype.
+AI Product Manager specialized in building 0→1 products across B2B SaaS, Fintech, and AI sectors. I've scaled platforms to a global user base by prioritizing reliability, reasoning transparency, and unit economics over AI hype.
 <br/><br/>
 I specialize in shipping evaluation-driven LLM, RAG, semantic search, and agentic pipelines into production with clear metrics for acceptance, cost, latency, and reliability. I ground AI roadmaps in user research, experimentation, evals, and tradeoff analysis.`,
     image_l: {
-      url: "/ruthwik.jpg",
+      url: "/profile-placeholder.jpg",
       alt: "Ruthwik Arepelly",
     },
     image_r: {
-      url: "/ruthwik.jpg",
+      url: "/profile-placeholder.jpg",
       alt: "Ruthwik Arepelly",
     },
   },
@@ -168,7 +169,7 @@ export const projectsPageContent: ProjectPageContent = {
     {
       title: "PennyPal",
       description: "GenAI financial companion with 90% voice intent recognition accuracy.",
-      image: "/demo-2.jpg",
+      image: "/demo-1.jpg",
       year: "2024",
       url: "https://github.com/Ruthwik-Data/pennypal",
     },
@@ -182,7 +183,7 @@ export const projectsPageContent: ProjectPageContent = {
     {
       title: "Warmlist",
       description: "Warm outreach tracker for founders and PMs to track high-intent leads.",
-      image: "/demo-2.jpg",
+      image: "/demo-1.jpg",
       year: "2024",
       url: "https://github.com/Ruthwik-Data/warmlist",
     },
@@ -196,7 +197,7 @@ export const projectsPageContent: ProjectPageContent = {
     {
       title: "SleepSense",
       description: "AI-driven sleep coaching application built with TypeScript.",
-      image: "/demo-2.jpg",
+      image: "/demo-1.jpg",
       year: "2024",
       url: "https://github.com/Ruthwik-Data/sleepsense",
     },
@@ -213,16 +214,17 @@ export const blogPageContent: BlogPageContent = {
   subtitle: "Selected Writing from Medium",
 };
 
-export const skills = [
-  "LLM APIs",
-  "RAG Pipelines",
-  "Agentic Workflows",
-  "GPT-4o Vision",
-  "TypeScript",
-  "Python",
-  "Next.js",
-  "Product Strategy",
-  "B2B SaaS",
-  "Fintech",
-  "Evaluation Frameworks"
+export const skillCategories = [
+  {
+    title: "AI / Data / LLM",
+    skills: ["LLM APIs", "RAG Pipelines", "Agentic Workflows", "GPT-4o Vision", "Semantic Search", "Prompt Engineering"]
+  },
+  {
+    title: "Product / PM",
+    skills: ["Product Strategy", "B2B SaaS", "Fintech", "Evaluation Frameworks", "User Research", "Unit Economics"]
+  },
+  {
+    title: "Technical Tools & Platforms",
+    skills: ["TypeScript", "Python", "Next.js", "SQL", "Astro", "Vercel / GitHub Pages"]
+  }
 ];
