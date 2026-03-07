@@ -1,0 +1,445 @@
+---
+// ChaosToClarityDiagram.astro
+// Animated "From Chaos to Clarity" illustration for the About section
+---
+
+<div class="ctc-wrapper" aria-label="From Chaos to Clarity: AI transformation pipeline diagram">
+  <p class="ctc-title">From Chaos to Clarity</p>
+
+  <div class="ctc-grid">
+
+    <!-- LEFT: CHAOS -->
+    <div class="ctc-panel chaos-panel">
+      <p class="panel-label chaos-label">Chaos</p>
+      <div class="chaos-items">
+        <div class="chaos-card c1">📄 Crumpled Receipt<br/><span>Walmart · $63.17</span></div>
+        <div class="chaos-card c2">📝 Handwritten Note<br/><span>woke up tired?? 3am again</span></div>
+        <div class="chaos-card c3">🥫 Nutrition Label<br/><span>Sugar: maltodextrin, dextros...</span></div>
+        <div class="chaos-card c4">📧 Email Thread<br/><span>Re: Re: Re: follow up???</span></div>
+        <div class="chaos-card c5">🖼 Screenshot<br/><span>blurry_capture_0042.png</span></div>
+        <div class="chaos-card c6">📋 Dense Doc<br/><span>Q4 Report v7_FINAL_v2</span></div>
+      </div>
+    </div>
+
+    <!-- CENTER: AI ENGINE -->
+    <div class="ctc-panel engine-panel">
+      <p class="panel-label engine-label">AI Reasoning Engine</p>
+      <div class="engine-nodes">
+        <div class="engine-node n1">
+          <span class="node-icon">👁️</span>
+          <span class="node-name">Vision Models</span>
+        </div>
+        <div class="engine-arrow">
+          <div class="arrow-line"><div class="arrow-pulse"></div></div>
+          <svg class="arrow-head" viewBox="0 0 10 10"><path d="M0 5 L6 2 L6 8 Z" fill="currentColor"/></svg>
+        </div>
+        <div class="engine-node n2">
+          <span class="node-icon">🔍</span>
+          <span class="node-name">RAG Retrieval</span>
+        </div>
+        <div class="engine-arrow">
+          <div class="arrow-line"><div class="arrow-pulse"></div></div>
+          <svg class="arrow-head" viewBox="0 0 10 10"><path d="M0 5 L6 2 L6 8 Z" fill="currentColor"/></svg>
+        </div>
+        <div class="engine-node n3">
+          <span class="node-icon">🧠</span>
+          <span class="node-name">LLM Reasoning</span>
+        </div>
+        <div class="engine-arrow">
+          <div class="arrow-line"><div class="arrow-pulse"></div></div>
+          <svg class="arrow-head" viewBox="0 0 10 10"><path d="M0 5 L6 2 L6 8 Z" fill="currentColor"/></svg>
+        </div>
+        <div class="engine-node n4">
+          <span class="node-icon">🤖</span>
+          <span class="node-name">Agent Workflows</span>
+        </div>
+        <div class="engine-arrow">
+          <div class="arrow-line"><div class="arrow-pulse"></div></div>
+          <svg class="arrow-head" viewBox="0 0 10 10"><path d="M0 5 L6 2 L6 8 Z" fill="currentColor"/></svg>
+        </div>
+        <div class="engine-node n5">
+          <span class="node-icon">✅</span>
+          <span class="node-name">Evaluation Layer</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: CLARITY -->
+    <div class="ctc-panel clarity-panel">
+      <p class="panel-label clarity-label">Clarity</p>
+      <div class="clarity-items">
+        <div class="clarity-card cl1">
+          <p class="clarity-card-title">📊 Structured Data</p>
+          <div class="mini-table">
+            <div class="mini-row header"><span>Merchant</span><span>Amount</span><span>Category</span></div>
+            <div class="mini-row"><span>Walmart</span><span>$63.17</span><span>Groceries</span></div>
+            <div class="mini-row"><span>SPAR</span><span>$342.90</span><span>⚠ Outlier</span></div>
+          </div>
+        </div>
+        <div class="clarity-card cl2">
+          <p class="clarity-card-title">📈 Insights</p>
+          <div class="mini-bars">
+            <div class="bar-row"><span>Precision</span><div class="bar-bg"><div class="bar-fill" style="width:100%">1.00</div></div></div>
+            <div class="bar-row"><span>Recall</span><div class="bar-bg"><div class="bar-fill amber" style="width:77%">0.77</div></div></div>
+          </div>
+        </div>
+        <div class="clarity-card cl3">
+          <p class="clarity-card-title">🎯 Recommendations</p>
+          <ul class="reco-list">
+            <li>✓ Expand sweetener dictionary</li>
+            <li>✓ Flag outlier transactions</li>
+            <li>✓ Cluster by spend category</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .ctc-wrapper {
+    width: 100%;
+    background: linear-gradient(135deg, #0d0d14 0%, #0f1520 100%);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 24px;
+    padding: 32px 24px 28px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ctc-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .ctc-title {
+    text-align: center;
+    font-family: ui-monospace, 'Courier New', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(148,163,184,0.6);
+    margin-bottom: 24px;
+  }
+
+  .ctc-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .ctc-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .panel-label {
+    font-family: ui-monospace, monospace;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .chaos-label { color: rgba(251,146,60,0.7); }
+  .engine-label { color: rgba(99,179,237,0.7); text-align: center; }
+  .clarity-label { color: rgba(52,211,153,0.7); text-align: right; }
+
+  /* ───── CHAOS PANEL ───── */
+  .chaos-panel { align-items: flex-start; }
+
+  .chaos-items {
+    position: relative;
+    height: 260px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .chaos-card {
+    position: absolute;
+    background: rgba(30,20,10,0.9);
+    border: 1px solid rgba(251,146,60,0.2);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 10px;
+    color: rgba(253,186,116,0.85);
+    font-family: ui-monospace, monospace;
+    line-height: 1.4;
+    backdrop-filter: blur(4px);
+    animation: chaosFloat 4s ease-in-out infinite;
+    cursor: default;
+    transition: transform 0.3s, z-index 0s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+
+  .chaos-card span {
+    display: block;
+    color: rgba(180,140,90,0.6);
+    font-size: 9px;
+    margin-top: 2px;
+  }
+
+  .chaos-card:hover {
+    z-index: 10;
+    transform: scale(1.05) rotate(0deg) !important;
+    border-color: rgba(251,146,60,0.5);
+  }
+
+  .c1 { top: 0px;   left: 0%;    rotate: -3deg;  animation-delay: 0s; }
+  .c2 { top: 38px;  left: 10%;   rotate: 5deg;   animation-delay: 0.6s; }
+  .c3 { top: 88px;  left: 0%;    rotate: -6deg;  animation-delay: 1.2s; }
+  .c4 { top: 76px;  left: 22%;   rotate: 3deg;   animation-delay: 0.3s; }
+  .c5 { top: 158px; left: 4%;    rotate: -2deg;  animation-delay: 0.9s; }
+  .c6 { top: 168px; left: 18%;   rotate: 6deg;   animation-delay: 1.5s; }
+
+  @keyframes chaosFloat {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-5px); }
+  }
+
+  /* ───── ENGINE PANEL ───── */
+  .engine-panel {
+    align-items: center;
+    min-width: 160px;
+  }
+
+  .engine-nodes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+
+  .engine-node {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 25, 45, 0.95);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 10px;
+    padding: 8px 14px;
+    width: 100%;
+    box-shadow: 0 0 12px rgba(59,130,246,0.1), inset 0 1px 0 rgba(255,255,255,0.04);
+    animation: nodePulse 3s ease-in-out infinite;
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+
+  .engine-node:hover {
+    border-color: rgba(99,179,237,0.7);
+    box-shadow: 0 0 20px rgba(59,130,246,0.25);
+  }
+
+  .n1 { animation-delay: 0s; }
+  .n2 { animation-delay: 0.4s; }
+  .n3 { animation-delay: 0.8s; }
+  .n4 { animation-delay: 1.2s; }
+  .n5 { animation-delay: 1.6s; }
+
+  @keyframes nodePulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(59,130,246,0.10); }
+    50%       { box-shadow: 0 0 18px rgba(59,130,246,0.25); }
+  }
+
+  .node-icon {
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .node-name {
+    font-family: ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(147,210,255,0.9);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  /* Arrows */
+  .engine-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    height: 20px;
+    width: 100%;
+  }
+
+  .arrow-line {
+    width: 2px;
+    height: 14px;
+    background: rgba(59,130,246,0.2);
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .arrow-pulse {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(99,210,255,0.9), transparent);
+    animation: flowDown 1.5s linear infinite;
+  }
+
+  @keyframes flowDown {
+    from { top: -100%; }
+    to { top: 200%; }
+  }
+
+  .arrow-head {
+    width: 8px;
+    height: 8px;
+    color: rgba(59,130,246,0.5);
+    margin-top: -2px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform: rotate(90deg);
+  }
+
+  /* ───── CLARITY PANEL ───── */
+  .clarity-panel { align-items: flex-end; }
+
+  .clarity-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .clarity-card {
+    background: rgba(5, 25, 20, 0.9);
+    border: 1px solid rgba(52,211,153,0.2);
+    border-radius: 10px;
+    padding: 10px 12px;
+    animation: clarityFade 3s ease-in-out infinite;
+    transition: box-shadow 0.3s, border-color 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .clarity-card:hover {
+    border-color: rgba(52,211,153,0.5);
+    box-shadow: 0 0 20px rgba(52,211,153,0.12);
+  }
+
+  .cl1 { animation-delay: 0s; }
+  .cl2 { animation-delay: 0.5s; }
+  .cl3 { animation-delay: 1s; }
+
+  @keyframes clarityFade {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 1; }
+  }
+
+  .clarity-card-title {
+    font-family: ui-monospace, monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(52,211,153,0.7);
+    margin-bottom: 6px;
+  }
+
+  /* Mini Table */
+  .mini-table { display: flex; flex-direction: column; gap: 2px; }
+  .mini-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+    font-size: 9px;
+    font-family: ui-monospace, monospace;
+    color: rgba(156,220,180,0.8);
+    padding: 2px 0;
+  }
+  .mini-row.header {
+    color: rgba(100,160,120,0.5);
+    font-size: 8px;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 4px;
+    margin-bottom: 2px;
+  }
+
+  /* Mini Bars */
+  .mini-bars { display: flex; flex-direction: column; gap: 5px; }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 9px;
+    font-family: ui-monospace, monospace;
+    color: rgba(100,160,120,0.6);
+  }
+  .bar-row span { width: 42px; shrink: 0; }
+  .bar-bg {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border-radius: 99px;
+    height: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(52,211,153,0.1);
+  }
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, rgba(52,211,153,0.7), rgba(99,210,255,0.7));
+    border-radius: 99px;
+    font-size: 8px;
+    color: rgba(255,255,255,0.8);
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
+    font-family: ui-monospace, monospace;
+    animation: barGrow 2s ease-out forwards;
+  }
+  .bar-fill.amber {
+    background: linear-gradient(90deg, rgba(245,158,11,0.7), rgba(251,191,36,0.6));
+  }
+  @keyframes barGrow {
+    from { width: 0% !important; }
+  }
+
+  /* Reco list */
+  .reco-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .reco-list li {
+    font-family: ui-monospace, monospace;
+    font-size: 9px;
+    color: rgba(134,239,172,0.8);
+    background: rgba(52,211,153,0.05);
+    border-radius: 6px;
+    padding: 3px 6px;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .ctc-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+    }
+    .clarity-panel { align-items: flex-start; }
+    .clarity-label { text-align: left; }
+    .chaos-items { height: 200px; }
+    .engine-nodes { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 6px; }
+    .engine-arrow { display: none; }
+    .engine-node { width: auto; }
+  }
+</style>

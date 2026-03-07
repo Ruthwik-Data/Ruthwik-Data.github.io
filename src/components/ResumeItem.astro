@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-icon/components";
+import type { ResumeItem } from "../types/config";
+
+type Props = ResumeItem;
+
+const { title, company, date, description, icon } = Astro.props;
+---
+
+<div class="py-6 border-b border-white/5 last:border-0 group-hover:opacity-60 hover:!opacity-100 transition-opacity">
+  <div class="flex items-start gap-4 mb-4">
+    <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 shrink-0 mt-1">
+      {icon && <Icon name={icon} width={20} height={20} class="text-blue-400" />}
+    </div>
+    <div class="flex-1">
+      <div class="flex justify-between items-start flex-col sm:flex-row sm:items-center mb-1">
+        <h3 class="font-bold text-lg text-white group-hover:text-blue-400 transition-colors">{title}</h3>
+        <span class="text-sm font-medium text-zinc-500 bg-white/5 px-3 py-1 rounded-full">{date}</span>
+      </div>
+      <p class="text-emerald-400/80 font-medium text-sm mb-4">{company}</p>
+      <ul class="space-y-2">
+        {description.map((item) => (
+          <li class="text-zinc-400 text-sm flex items-start gap-2">
+            <span class="text-blue-500/50 mt-[2px]">•</span>
+            <span class="leading-relaxed">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
