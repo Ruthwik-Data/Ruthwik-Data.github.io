@@ -26,8 +26,15 @@ jobs:
         run: npm install
         
       - name: Build site
-        run: npm run build
+        run: npm run build > build-log.txt 2>&1 || (cat build-log.txt && exit 1)
         
+      - name: Upload Build Log 
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build-log.txt
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
