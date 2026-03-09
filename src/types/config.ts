@@ -131,11 +131,20 @@ export type Project = {
   };
 };
 
+export type ConceptProject = {
+  title: string;
+  problem: string;
+  concept: string;
+  tags: string[];
+  url: string;
+};
+
 export type ProjectPageContent = {
   seo: SEOInfo;
   subtitle: string;
   projects: Project[];
   aiLabs: AILab[];
+  concepts: ConceptProject[];
 };
 
 export type BlogPageContent = {

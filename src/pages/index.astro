@@ -4,6 +4,7 @@ import { homePageContent, identity, skillCategories, projectsPageContent, aboutP
 import SocialLink from "../components/SocialLink.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import AILabCard from "../components/AILabCard.astro";
+import ConceptCard from "../components/ConceptCard.astro";
 import ResumeItem from "../components/ResumeItem.astro";
 import SocialLinkBox from "../components/SocialLinkBox.astro";
 import { marked } from "marked";
@@ -134,6 +135,21 @@ const featuredProject = projectsPageContent.projects.find(p => p.id === 'sugarsh
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {projectsPageContent.aiLabs.map((lab) => (
         <AILabCard {...lab} />
+      ))}
+    </div>
+  </section>
+
+  {/* 4b. CONCEPTS & EARLY-STAGE EXPERIMENTS */}
+  <section class="max-w-4xl mx-auto px-6 mb-32 opacity-0 translate-y-4 animate-[fade-in_0.8s_ease-out_0.45s_forwards]">
+    <div class="mb-12 flex justify-between items-end">
+      <div>
+        <h2 class="font-bold text-3xl text-white mb-2">Concepts & Early-Stage Experiments</h2>
+        <p class="text-zinc-500 text-lg leading-relaxed">Idea-stage projects where I explored problems, hypotheses, and product directions before committing to full builds.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {projectsPageContent.concepts.map((concept) => (
+        <ConceptCard {...concept} />
       ))}
     </div>
   </section>

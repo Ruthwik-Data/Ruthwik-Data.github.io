@@ -12,7 +12,7 @@ const buttonLabel = url.includes('coming-soon') ? 'Coming soon' : 'Read concept 
   <div class="relative z-10 flex flex-col h-full">
     {/* Tags Row */}
     <div class="flex flex-wrap gap-2 mb-4 justify-start">
-      {tags.slice(0, 3).map((tag) => (
+      {tags.slice(0, 3).map((tag: string) => (
         <span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest bg-zinc-800 text-zinc-400 border border-zinc-700">
           {tag}
         </span>

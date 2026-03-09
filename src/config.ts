@@ -433,6 +433,22 @@ export const projectsPageContent: ProjectPageContent = {
       url: "https://lovable.example/rag-finance",
     },
   ],
+  concepts: [
+    {
+      title: "Contextual Inbox",
+      problem: "Support teams waste time switching tabs to find user history and billing data.",
+      concept: "Explored an LLM-powered sidebar that surfaces relevant user context automatically. Paused after validating technical feasibility because of API cost constraints.",
+      tags: ["Concept", "Exploration", "Internal Tool"],
+      url: "#coming-soon",
+    },
+    {
+      title: "Pricing Optimizer",
+      problem: "B2B SaaS companies struggle to test pricing elasticity dynamically.",
+      concept: "Designed a multi-armed bandit system to test pricing tiers. Explored but deprioritized due to data sparsity in early-stage products.",
+      tags: ["Idea-stage", "Unshipped", "Pricing"],
+      url: "#coming-soon",
+    }
+  ],
 };
 
 // Blog (/writing)
