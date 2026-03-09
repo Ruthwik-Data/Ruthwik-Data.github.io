@@ -1,0 +1,41 @@
+---
+import type { ConceptProject } from "../types/config";
+
+type Props = ConceptProject;
+
+const { title, problem, concept, tags, url } = Astro.props;
+const buttonLabel = url.includes('coming-soon') ? 'Coming soon' : 'Read concept case study →';
+---
+
+<a href={url} target="_blank" rel="noopener noreferrer" class="block group relative p-6 bg-zinc-900/30 border border-white/5 rounded-3xl transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-500/30">
+  <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+  <div class="relative z-10 flex flex-col h-full">
+    {/* Tags Row */}
+    <div class="flex flex-wrap gap-2 mb-4 justify-start">
+      {tags.slice(0, 3).map((tag) => (
+        <span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest bg-zinc-800 text-zinc-400 border border-zinc-700">
+          {tag}
+        </span>
+      ))}
+    </div>
+    
+    {/* Title */}
+    <h3 class="text-xl font-bold text-white mb-3 transition-colors group-hover:text-purple-400">{title}</h3>
+    
+    <p class="text-sm text-zinc-300 mb-2 leading-relaxed line-clamp-2">
+      <span class="font-bold text-zinc-500 uppercase text-[10px] tracking-widest mr-2">Problem:</span>
+      {problem}
+    </p>
+    <p class="text-sm text-zinc-300 mb-6 leading-relaxed line-clamp-2">
+      <span class="font-bold text-zinc-500 uppercase text-[10px] tracking-widest mr-2">Exploration:</span>
+      {concept}
+    </p>
+    
+    <div class="mt-auto pt-4 border-t border-white/5">
+      {/* CTA */}
+      <div class="flex items-center text-xs font-bold w-fit uppercase tracking-widest gap-2 text-zinc-400 group-hover:text-purple-400 transition-colors mt-2">
+        {buttonLabel}
+      </div>
+    </div>
+  </div>
+</a>
