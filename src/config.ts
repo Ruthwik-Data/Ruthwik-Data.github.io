@@ -166,8 +166,8 @@ export const projectsPageContent: ProjectPageContent = {
       metric: "172 item-level records extracted",
       githubUrl: "https://github.com/Ruthwik-Data/receiptiq",
       liveUrl: "https://receiptiq-topaz.vercel.app/",
-      image: "/receiptiq_viz.png",
-      galleryUrls: ["/receiptiq_viz.png", "/receiptiq.webp"],
+      image: "/receiptiq_viz.jpg",
+      galleryUrls: ["/receiptiq_viz.jpg", "/receiptiq.webp"],
       overview: [
         "Structured 18 transactions from 20 processed receipts",
         "Extracted 172 item-level records into a usable data model",
@@ -344,8 +344,8 @@ export const projectsPageContent: ProjectPageContent = {
       githubUrl: "https://github.com/Ruthwik-Data/sugarshield",
       liveUrl: "https://sugarshield.vercel.app/",
       evalUrl: "https://sugarshield.vercel.app/eval",
-      image: "/sugarshield_viz.png",
-      galleryUrls: ["/sugarshield_viz.png", "/sugarshield.webp", "/sugarshield_diagram.png"],
+      image: "/sugarshield_viz.jpg",
+      galleryUrls: ["/sugarshield_viz.jpg", "/sugarshield.webp", "/sugarshield_diagram.jpg"],
       overview: [
         "Made the core PM call: a false negative (missing hidden sugar) is worse than a false positive—so the model over-warns by design",
         "0 false negatives and 87% trigger-match rate across a 15-case ground-truth set (scan, link, upload)",

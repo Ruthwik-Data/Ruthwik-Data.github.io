@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ruthwik-data.github.io/sitemap-index.xml

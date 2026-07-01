@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import { navBarLinks, identity } from "../config";
+import { navBarLinks, identity, socialLinks } from "../config";
 import type { SEOInfo } from "../types/config";
 
 interface Props {
@@ -10,6 +10,21 @@ interface Props {
 }
 
 const { seo } = Astro.props;
+
+const site = Astro.site ?? new URL("https://ruthwik-data.github.io");
+const canonical = new URL(Astro.url.pathname, site).href;
+const ogImage = new URL(seo.image, site).href;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: identity.name,
+  jobTitle: "AI Product Manager",
+  email: `mailto:${identity.email}`,
+  url: site.href,
+  image: ogImage,
+  sameAs: socialLinks.map((l) => l.url),
+};
 ---
 
 <script>
@@ -57,9 +72,20 @@ const { seo } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{seo.title}</title>
     <meta name="description" content={seo.description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={identity.name} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={seo.title} />
     <meta property="og:description" content={seo.description} />
-    <meta property="og:image" content={seo.image} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seo.title} />
+    <meta name="twitter:description" content={seo.description} />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="alternate" type="application/rss+xml" title="Ruthwik Arepelly — Blog" href="/rss.xml" />
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </head>
   <body class="bg-[#050510] relative overflow-x-hidden min-h-screen">
     <!-- Sophisticated Background Accents -->
