@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 540" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial">
+  <defs>
+    <linearGradient id="hb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0a1e"/>
+      <stop offset="1" stop-color="#070711"/>
+    </linearGradient>
+    <linearGradient id="hb-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+  <rect width="460" height="540" rx="24" fill="url(#hb-bg)" stroke="#1f2937" stroke-opacity="0.6"/>
+
+  <text x="36" y="58" fill="#71717a" font-size="13" font-weight="700" letter-spacing="3">HOW I BUILD</text>
+  <text x="36" y="92" fill="#f4f4f5" font-size="26" font-weight="700">Principles over hype</text>
+  <line x1="36" y1="116" x2="424" y2="116" stroke="#1f2937"/>
+
+  <!-- 1 -->
+  <g>
+    <circle cx="50" cy="164" r="15" fill="#0b1220" stroke="#3b82f6"/>
+    <text x="50" y="169" fill="#60a5fa" font-size="14" font-weight="700" text-anchor="middle">01</text>
+    <text x="82" y="160" fill="#e4e4e7" font-size="18" font-weight="700">Ship reliable, not flashy</text>
+    <text x="82" y="183" fill="#a1a1aa" font-size="14">Production systems &gt; impressive demos.</text>
+  </g>
+  <!-- 2 -->
+  <g>
+    <circle cx="50" cy="248" r="15" fill="#0b1220" stroke="#3b82f6"/>
+    <text x="50" y="253" fill="#60a5fa" font-size="14" font-weight="700" text-anchor="middle">02</text>
+    <text x="82" y="244" fill="#e4e4e7" font-size="18" font-weight="700">Kill what doesn't earn its runway</text>
+    <text x="82" y="267" fill="#a1a1aa" font-size="14">Saying no protects the roadmap.</text>
+  </g>
+  <!-- 3 -->
+  <g>
+    <circle cx="50" cy="332" r="15" fill="#0a1512" stroke="#10b981"/>
+    <text x="50" y="337" fill="#6ee7b7" font-size="14" font-weight="700" text-anchor="middle">03</text>
+    <text x="82" y="328" fill="#e4e4e7" font-size="18" font-weight="700">Evaluate before you trust</text>
+    <text x="82" y="351" fill="#a1a1aa" font-size="14">Prove it works — then ship it.</text>
+  </g>
+  <!-- 4 -->
+  <g>
+    <circle cx="50" cy="416" r="15" fill="#0a1512" stroke="#10b981"/>
+    <text x="50" y="421" fill="#6ee7b7" font-size="14" font-weight="700" text-anchor="middle">04</text>
+    <text x="82" y="412" fill="#e4e4e7" font-size="18" font-weight="700">Build &amp; learn in public</text>
+    <text x="82" y="435" fill="#a1a1aa" font-size="14">Open-source contributions, out loud.</text>
+  </g>
+
+  <line x1="36" y1="466" x2="424" y2="466" stroke="#1f2937"/>
+  <text x="36" y="502" fill="#f4f4f5" font-size="15" font-weight="600">Founder's instinct</text>
+  <text x="230" y="502" fill="url(#hb-accent)" font-size="15" font-weight="700">×  PM's discipline</text>
+</svg>

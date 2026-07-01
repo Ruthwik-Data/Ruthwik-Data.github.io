@@ -81,8 +81,8 @@ export const aboutPageContent: AboutPageContent = {
   },
   subtitle: "AI Product Manager — B2B SaaS, Fintech, Evaluation-Driven Systems",
   about: {
-    bioFirstLine: "Former founder and AI Product Manager with 7+ years building high-trust AI systems.",
-    bioSecondLine: "I move LLM pipelines from prototype to production (68% → 91% acceptance), protect engineering runway by killing low-value features, and scaled a B2B fintech platform from zero to $100K ARR. I build RAG pipelines, LLM evaluation frameworks, and agentic workflows — and contribute back to open-source AI eval tools, with a merged fix in DeepEval and PRs to LlamaIndex, Mastra, and Phoenix.",
+    bioFirstLine: "I started out as a founder — and I still build AI like one: obsessed with what's real, not with what demos well.",
+    bioSecondLine: "Co-founding a fintech taught me that shipping is the easy part and earning trust is the hard part. That's what pulled me toward evaluation — proving an AI system actually works before anyone bets on it. Today I take LLM pipelines from prototype to production, kill the features that don't earn their runway, and contribute the fixes back to open-source eval tools like DeepEval. I build and write in public, because the fastest way to learn this space is out loud.",
     image_l: { url: "/profile.jpg", alt: "Ruthwik Arepelly" },
     image_r: { url: "/profile.jpg", alt: "Ruthwik Arepelly" },
   },
@@ -536,6 +536,18 @@ export const openSourceContributions: OpenSourceContribution[] = [
     summary: "Regression scenarios that pin down how agent memory fails — staleness, wrong recall, and importance weighting.",
   },
 ];
+
+// Sneak peek — "Now building" teaser banner near the top. Set show:false to hide.
+export const upcomingProject = {
+  show: true,
+  label: "Now building",
+  name: "Athena",
+  tagline: "A Mac AI voice companion that lives in your menu bar—it sees your screen, answers by voice, points its cursor at on-screen elements, and runs automation tasks.",
+  detail: "Native SwiftUI menu-bar app · AssemblyAI speech, Claude reasoning, ElevenLabs voice · keys proxied through a Cloudflare Worker. Built on open-source Clicky, with a Jarvis-style HUD.",
+  tags: ["macOS", "SwiftUI", "Voice AI", "Screen-aware Agent", "Claude"],
+  status: "Coming Soon",
+  url: "", // optional waitlist/repo link — leave empty for no button
+};
 
 // Hiring status — shown as the "Open to Work" band near the top.
 // EDIT the empty fields to make them appear; empty ones stay hidden (no placeholder ever renders).

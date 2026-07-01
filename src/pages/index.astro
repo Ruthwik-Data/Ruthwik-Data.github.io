@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { homePageContent, identity, skillCategories, projectsPageContent, aboutPageContent, socialLinks, openSourceContributions, hiringStatus, education, certifications } from "../config";
+import { homePageContent, identity, skillCategories, projectsPageContent, aboutPageContent, socialLinks, openSourceContributions, hiringStatus, education, certifications, upcomingProject } from "../config";
 import SocialLink from "../components/SocialLink.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import AILabCard from "../components/AILabCard.astro";
@@ -9,7 +9,6 @@ import ConceptCard from "../components/ConceptCard.astro";
 import ResumeItem from "../components/ResumeItem.astro";
 import SocialLinkBox from "../components/SocialLinkBox.astro";
 import { marked } from "marked";
-import ChaosToClarityDiagram from "../components/ChaosToClarityDiagram.astro";
 
 const aboutBioFirst = aboutPageContent.about.bioFirstLine;
 const aboutBioSecond = aboutPageContent.about.bioSecondLine;
@@ -111,6 +110,41 @@ const featuredProject = projectsPageContent.projects.find(p => p.id === 'sugarsh
       ))}
     </div>
   </section>
+
+  {/* 1c. NOW BUILDING — SNEAK PEEK */}
+  {upcomingProject.show && (
+    <section class="max-w-4xl mx-auto px-6 mb-24 opacity-0 translate-y-4 animate-[fade-in_0.8s_ease-out_0.18s_forwards]">
+      <div class="relative rounded-2xl p-[1px] bg-gradient-to-r from-cyan-500/40 via-blue-500/30 to-transparent">
+        <div class="rounded-2xl bg-[#070b16] px-6 py-6 md:px-8">
+          <div class="flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center flex-wrap gap-3 mb-2">
+                <span class="inline-flex items-center gap-2 text-cyan-300 text-[11px] font-bold uppercase tracking-[0.2em]">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+                  </span>
+                  {upcomingProject.label}
+                </span>
+                <span class="text-2xl font-bold text-white tracking-tight">{upcomingProject.name}</span>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-cyan-300/90 bg-cyan-500/10 border border-cyan-500/30 px-2 py-1 rounded-full">{upcomingProject.status}</span>
+              </div>
+              <p class="text-zinc-300 text-[15px] leading-relaxed mb-2">{upcomingProject.tagline}</p>
+              <p class="text-zinc-500 text-[13px] leading-relaxed mb-4">{upcomingProject.detail}</p>
+              <div class="flex flex-wrap gap-2">
+                {upcomingProject.tags.map((tag) => (
+                  <span class="text-[11px] font-medium text-cyan-200/80 px-2.5 py-1 bg-cyan-500/5 rounded-full border border-cyan-500/20">{tag}</span>
+                ))}
+              </div>
+            </div>
+            {upcomingProject.url && (
+              <a href={upcomingProject.url} target="_blank" rel="noopener noreferrer" class="shrink-0 px-5 py-2.5 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-500/30 rounded-full font-bold text-sm transition-all">Get early access →</a>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
   {/* 2. FEATURED PROJECT */}
   <section class="max-w-4xl mx-auto px-6 mb-32 opacity-0 translate-y-4 animate-[fade-in_0.8s_ease-out_0.2s_forwards]">
@@ -287,7 +321,7 @@ const featuredProject = projectsPageContent.projects.find(p => p.id === 'sugarsh
         <p class="text-lg text-zinc-400 leading-relaxed">{aboutBioSecond}</p>
       </div>
       <div class="w-full md:w-[420px] shrink-0">
-        <ChaosToClarityDiagram />
+        <img src="/how-i-build.svg" alt="How I build: principles over hype" loading="lazy" class="w-full h-auto rounded-2xl" />
       </div>
     </div>
   </section>
