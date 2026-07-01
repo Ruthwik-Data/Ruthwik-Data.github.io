@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08081a"/>
+      <stop offset="1" stop-color="#050510"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0 0 L7 3 L0 6 z" fill="#52525b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg2)"/>
+
+  <text x="64" y="86" fill="#f4f4f5" font-size="40" font-weight="700">self-improving-prompt-agent</text>
+  <text x="64" y="122" fill="#60a5fa" font-size="20" font-weight="600" letter-spacing="1">EDIT → EVALUATE → KEEP / REJECT LOOP</text>
+
+  <!-- loop nodes -->
+  <g font-size="17" font-weight="600">
+    <rect x="64" y="200" width="150" height="70" rx="14" fill="#0b1220" stroke="#3f3f46"/>
+    <text x="139" y="232" fill="#e4e4e7" text-anchor="middle">prompt.txt</text>
+    <text x="139" y="253" fill="#71717a" text-anchor="middle" font-size="13">artifact</text>
+
+    <rect x="266" y="200" width="150" height="70" rx="14" fill="#0b1220" stroke="#3f3f46"/>
+    <text x="341" y="232" fill="#e4e4e7" text-anchor="middle">mutate</text>
+    <text x="341" y="253" fill="#71717a" text-anchor="middle" font-size="13">loop.py</text>
+
+    <rect x="468" y="200" width="150" height="70" rx="14" fill="#0b1220" stroke="#3f3f46"/>
+    <text x="543" y="232" fill="#e4e4e7" text-anchor="middle">judge</text>
+    <text x="543" y="253" fill="#71717a" text-anchor="middle" font-size="13">score 0–1</text>
+
+    <rect x="670" y="200" width="180" height="70" rx="14" fill="#0b1a16" stroke="#10b981"/>
+    <text x="760" y="232" fill="#6ee7b7" text-anchor="middle">keep if better</text>
+    <text x="760" y="253" fill="#34d399" text-anchor="middle" font-size="13">else reject</text>
+  </g>
+  <g stroke="#52525b" stroke-width="2" fill="none">
+    <path d="M214 235 h44" marker-end="url(#arrow)"/>
+    <path d="M416 235 h44" marker-end="url(#arrow)"/>
+    <path d="M618 235 h44" marker-end="url(#arrow)"/>
+    <path d="M760 270 v40 h-621 v-40" marker-end="url(#arrow)"/>
+  </g>
+  <text x="450" y="332" fill="#52525b" font-size="14" text-anchor="middle">iterate</text>
+
+  <!-- score climb -->
+  <g>
+    <rect x="64" y="372" width="500" height="180" rx="16" fill="#0b1220" stroke="#3f3f46"/>
+    <text x="92" y="410" fill="#a1a1aa" font-size="16" font-weight="600">SCORE ACROSS 10 ROUNDS</text>
+    <!-- baseline grid -->
+    <line x1="92" y1="520" x2="536" y2="520" stroke="#27272a"/>
+    <!-- bars 0.10 -> 0.80 -->
+    <g fill="#1e3a5f">
+      <rect x="100" y="508" width="30" height="12"/>
+      <rect x="142" y="496" width="30" height="24"/>
+      <rect x="184" y="496" width="30" height="24"/>
+      <rect x="226" y="484" width="30" height="36"/>
+      <rect x="268" y="484" width="30" height="36"/>
+      <rect x="310" y="460" width="30" height="60"/>
+      <rect x="352" y="448" width="30" height="72"/>
+      <rect x="394" y="448" width="30" height="72"/>
+      <rect x="436" y="436" width="30" height="84"/>
+    </g>
+    <rect x="478" y="424" width="30" height="96" fill="#10b981"/>
+    <text x="100" y="454" fill="#60a5fa" font-size="16" font-weight="700">0.10</text>
+    <text x="470" y="414" fill="#6ee7b7" font-size="16" font-weight="700">0.80</text>
+  </g>
+
+  <!-- takeaway -->
+  <g>
+    <rect x="596" y="372" width="540" height="180" rx="16" fill="#0a1512" stroke="#10b981" stroke-opacity="0.5"/>
+    <text x="624" y="416" fill="#6ee7b7" font-size="22" font-weight="700">0.10 → 0.80 in 10 rounds</text>
+    <text x="624" y="452" fill="#a1a1aa" font-size="16">3 of 10 mutations rejected — no regression.</text>
+    <text x="624" y="486" fill="#f4f4f5" font-size="16" font-weight="600">Same structure as RLHF, AutoML, DSPy</text>
+    <text x="624" y="512" fill="#a1a1aa" font-size="16">optimizers — in ~100 lines of Python.</text>
+    <text x="624" y="536" fill="#71717a" font-size="14">Optimization is bounded by the eval function.</text>
+  </g>
+</svg>

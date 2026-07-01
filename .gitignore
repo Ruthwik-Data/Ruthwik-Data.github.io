@@ -1,1 +1,11 @@
 node_modules
+
+# build output (CI rebuilds this on every deploy)
+dist
+.astro
+
+# logs & local artifacts
+logs.zip
+*log*.txt
+build-log.txt
+.DS_Store

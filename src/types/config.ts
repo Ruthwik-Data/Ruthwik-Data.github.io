@@ -94,7 +94,7 @@ export type AILab = {
 export type Project = {
   id: string;
   title: string;
-  status: "Live" | "Prototype" | "Case Study";
+  status: "Live" | "Prototype" | "Case Study" | "Open Source";
   category: "Shipped Product" | "Product Thinking" | "System Design";
 
   // Grid/Card Fields
@@ -106,6 +106,7 @@ export type Project = {
   githubUrl?: string;
   liveUrl?: string;
   loomUrl?: string;
+  evalUrl?: string; // optional live eval dashboard
 
   // Case Study Fields
   image: string;
@@ -129,6 +130,15 @@ export type Project = {
     primaryMetric: string;
     status: string;
   };
+};
+
+export type OpenSourceContribution = {
+  repo: string; // e.g. "confident-ai/deepeval"
+  title: string; // PR/issue title
+  ref: string; // e.g. "PR #2743"
+  status: "Merged" | "Open PR" | "Open Issue";
+  url: string;
+  summary: string; // one-line what & why
 };
 
 export type ConceptProject = {

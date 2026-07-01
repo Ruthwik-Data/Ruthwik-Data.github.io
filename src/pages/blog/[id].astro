@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+import { identity } from "../../config";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { id: post.id.replace(/\.md$/, "") },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await render(post);
+const readingTime = remarkPluginFrontmatter.minutesRead;
+
+const seo = {
+  title: `${post.data.title} | ${identity.name}`,
+  description: post.data.description,
+  image: post.data.image?.url ?? identity.logo,
+};
+---
+
+<Layout seo={seo}>
+  <article class="mt-10 max-w-2xl mx-auto px-6 pb-24">
+    <a href="/blog" class="text-blue-400 text-sm font-bold hover:underline">← All Writing</a>
+
+    <h1 class="font-bold text-3xl md:text-4xl text-white mt-6 mb-3 leading-tight">{post.data.title}</h1>
+    <p class="text-zinc-500 mb-8">
+      {post.data.pubDate.toLocaleDateString()} · {readingTime} · {post.data.author}
+    </p>
+
+    {post.data.image?.url && (
+      <Image
+        src={post.data.image.url}
+        alt={post.data.image.alt ?? post.data.title}
+        width={800}
+        height={400}
+        class="rounded-2xl w-full h-auto mb-10 border border-white/5"
+      />
+    )}
+
+    <div class="prose prose-invert max-w-none prose-headings:text-white prose-p:text-zinc-300 prose-a:text-blue-400">
+      <Content />
+    </div>
+  </article>
+</Layout>

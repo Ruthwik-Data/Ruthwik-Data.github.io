@@ -28,13 +28,15 @@ const thumbnail = galleryUrls && galleryUrls.length > 0 ? galleryUrls[0] : image
       </span>
       
       <span class={`flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest ${
-        status === 'Live' ? 'text-emerald-400' : 
-        status === 'Prototype' ? 'text-blue-400' : 
+        status === 'Live' ? 'text-emerald-400' :
+        status === 'Prototype' ? 'text-blue-400' :
+        status === 'Open Source' ? 'text-violet-400' :
         'text-purple-400'
       }`}>
         <span class={`w-1.5 h-1.5 rounded-full ${
-          status === 'Live' ? 'bg-emerald-400 animate-pulse' : 
-          status === 'Prototype' ? 'bg-blue-400' : 
+          status === 'Live' ? 'bg-emerald-400 animate-pulse' :
+          status === 'Prototype' ? 'bg-blue-400' :
+          status === 'Open Source' ? 'bg-violet-400' :
           'bg-purple-400'
         }`}></span>
         {status}

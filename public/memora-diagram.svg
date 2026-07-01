@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial">
+  <defs>
+    <linearGradient id="bgm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08081a"/>
+      <stop offset="1" stop-color="#050510"/>
+    </linearGradient>
+    <marker id="arrM" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0 0 L7 3 L0 6 z" fill="#52525b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bgm)"/>
+
+  <text x="64" y="86" fill="#f4f4f5" font-size="40" font-weight="700">Memora</text>
+  <text x="64" y="122" fill="#a78bfa" font-size="20" font-weight="600" letter-spacing="1">SCREENSHOTS → SEARCHABLE BY MEANING</text>
+
+  <!-- pipeline -->
+  <g font-size="17" font-weight="600">
+    <rect x="64" y="188" width="176" height="76" rx="14" fill="#0b1220" stroke="#3f3f46"/>
+    <text x="152" y="222" fill="#e4e4e7" text-anchor="middle">Drop screenshots</text>
+    <text x="152" y="245" fill="#71717a" text-anchor="middle" font-size="13">up to 20 / batch</text>
+
+    <rect x="292" y="188" width="200" height="76" rx="14" fill="#160f26" stroke="#8b5cf6"/>
+    <text x="392" y="222" fill="#c4b5fd" text-anchor="middle">Gemini 1.5 Flash</text>
+    <text x="392" y="245" fill="#a78bfa" text-anchor="middle" font-size="13">server route</text>
+
+    <rect x="544" y="188" width="200" height="76" rx="14" fill="#0b1220" stroke="#3f3f46"/>
+    <text x="644" y="222" fill="#e4e4e7" text-anchor="middle">Structured JSON</text>
+    <text x="644" y="245" fill="#71717a" text-anchor="middle" font-size="13">safeJsonParse guard</text>
+
+    <rect x="796" y="188" width="200" height="76" rx="14" fill="#0b1a16" stroke="#10b981"/>
+    <text x="896" y="222" fill="#6ee7b7" text-anchor="middle">Searchable gallery</text>
+    <text x="896" y="245" fill="#34d399" text-anchor="middle" font-size="13">by content</text>
+  </g>
+  <g stroke="#52525b" stroke-width="2" fill="none">
+    <path d="M240 226 h44" marker-end="url(#arrM)"/>
+    <path d="M492 226 h44" marker-end="url(#arrM)"/>
+    <path d="M744 226 h44" marker-end="url(#arrM)"/>
+  </g>
+
+  <!-- categories -->
+  <g>
+    <rect x="64" y="324" width="560" height="196" rx="16" fill="#0b1220" stroke="#3f3f46"/>
+    <text x="92" y="364" fill="#a1a1aa" font-size="16" font-weight="600">AUTO-CATEGORIZED</text>
+    <g font-size="17" font-weight="700">
+      <rect x="92" y="386" width="228" height="52" rx="10" fill="#131320"/>
+      <text x="118" y="418" fill="#c4b5fd">🧾 Receipts</text>
+      <rect x="340" y="386" width="204" height="52" rx="10" fill="#131320"/>
+      <text x="366" y="418" fill="#6ee7b7">▦ QR codes</text>
+      <rect x="92" y="450" width="228" height="52" rx="10" fill="#131320"/>
+      <text x="118" y="482" fill="#93c5fd">🍜 Food</text>
+      <rect x="340" y="450" width="204" height="52" rx="10" fill="#131320"/>
+      <text x="366" y="482" fill="#a1a1aa">◇ Other</text>
+    </g>
+  </g>
+
+  <!-- takeaway -->
+  <g>
+    <rect x="656" y="324" width="480" height="196" rx="16" fill="#0a1512" stroke="#10b981" stroke-opacity="0.5"/>
+    <text x="684" y="366" fill="#6ee7b7" font-size="20" font-weight="700">Search by meaning</text>
+    <text x="684" y="396" fill="#a1a1aa" font-size="16">"AWS invoice" · "sushi menu" · "blue</text>
+    <text x="684" y="418" fill="#a1a1aa" font-size="16">sneakers" — not filenames.</text>
+    <line x1="684" y1="442" x2="1108" y2="442" stroke="#27272a"/>
+    <text x="684" y="478" fill="#f4f4f5" font-size="16" font-weight="600">Privacy-first</text>
+    <text x="684" y="502" fill="#a1a1aa" font-size="15">Session-based · no server-side storage</text>
+  </g>
+</svg>

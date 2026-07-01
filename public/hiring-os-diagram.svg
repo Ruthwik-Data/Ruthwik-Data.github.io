@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial">
+  <defs>
+    <linearGradient id="bgh" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08081a"/>
+      <stop offset="1" stop-color="#050510"/>
+    </linearGradient>
+    <marker id="arrH" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0 0 L7 3 L0 6 z" fill="#52525b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bgh)"/>
+
+  <text x="64" y="86" fill="#f4f4f5" font-size="40" font-weight="700">Hiring OS CLI</text>
+  <text x="64" y="122" fill="#60a5fa" font-size="20" font-weight="600" letter-spacing="1">DISCOVER 250+ / HR → GATE → APPLY SAFELY</text>
+
+  <!-- flow row -->
+  <g font-size="17" font-weight="600">
+    <rect x="64" y="176" width="188" height="72" rx="14" fill="#0b1220" stroke="#3f3f46"/>
+    <text x="158" y="208" fill="#e4e4e7" text-anchor="middle">Autopilot</text>
+    <text x="158" y="230" fill="#71717a" text-anchor="middle" font-size="13">hourly loop</text>
+
+    <rect x="300" y="176" width="220" height="72" rx="14" fill="#0b1220" stroke="#3f3f46"/>
+    <text x="410" y="208" fill="#e4e4e7" text-anchor="middle">Discovery · 8 sources</text>
+    <text x="410" y="230" fill="#71717a" text-anchor="middle" font-size="13">Adzuna · Greenhouse · Lever · YC</text>
+
+    <rect x="568" y="176" width="220" height="72" rx="14" fill="#161020" stroke="#f59e0b"/>
+    <text x="678" y="208" fill="#fcd34d" text-anchor="middle">6 quality gates</text>
+    <text x="678" y="230" fill="#fbbf24" text-anchor="middle" font-size="13">must pass all</text>
+
+    <rect x="836" y="176" width="200" height="72" rx="14" fill="#0b1a16" stroke="#10b981"/>
+    <text x="936" y="208" fill="#6ee7b7" text-anchor="middle">Tailored apply</text>
+    <text x="936" y="230" fill="#34d399" text-anchor="middle" font-size="13">tracked locally</text>
+  </g>
+  <g stroke="#52525b" stroke-width="2" fill="none">
+    <path d="M252 212 h40" marker-end="url(#arrH)"/>
+    <path d="M520 212 h40" marker-end="url(#arrH)"/>
+    <path d="M788 212 h40" marker-end="url(#arrH)"/>
+  </g>
+
+  <!-- gates panel -->
+  <rect x="64" y="292" width="1072" height="232" rx="16" fill="#0b1220" stroke="#3f3f46"/>
+  <text x="92" y="332" fill="#fcd34d" font-size="16" font-weight="700">EVERY JOB MUST CLEAR ALL SIX GATES BEFORE ONE APPLICATION IS SENT</text>
+  <g font-size="17" font-weight="600">
+    <rect x="92" y="352" width="320" height="48" rx="10" fill="#131320"/>
+    <text x="112" y="382" fill="#e4e4e7">Fit <tspan fill="#6ee7b7">≥ 80%</tspan></text>
+    <rect x="440" y="352" width="320" height="48" rx="10" fill="#131320"/>
+    <text x="460" y="382" fill="#e4e4e7">ATS parse <tspan fill="#6ee7b7">≥ 90%</tspan></text>
+    <rect x="788" y="352" width="320" height="48" rx="10" fill="#0f1a16" stroke="#10b981"/>
+    <text x="808" y="382" fill="#e4e4e7">Resume Truth <tspan fill="#6ee7b7">≥ 95%</tspan></text>
+
+    <rect x="92" y="412" width="320" height="48" rx="10" fill="#131320"/>
+    <text x="112" y="442" fill="#e4e4e7">HM appeal <tspan fill="#6ee7b7">≥ 85%</tspan></text>
+    <rect x="440" y="412" width="320" height="48" rx="10" fill="#131320"/>
+    <text x="460" y="442" fill="#e4e4e7">Recruiter fit <tspan fill="#6ee7b7">≥ 85%</tspan></text>
+    <rect x="788" y="412" width="320" height="48" rx="10" fill="#131320"/>
+    <text x="808" y="442" fill="#e4e4e7">App strength <tspan fill="#6ee7b7">≥ 80%</tspan></text>
+  </g>
+  <text x="92" y="500" fill="#a1a1aa" font-size="15">The Resume Truth gate blocks fabrication — quality gates are evaluation applied to automation.</text>
+</svg>
