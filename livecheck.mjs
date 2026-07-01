@@ -1,0 +1,22 @@
+import puppeteer from 'puppeteer';
+const base='https://ruthwik-data.github.io';
+const b=await puppeteer.launch({headless:'new'});
+const p=await b.newPage();
+const errs=[],failed=[];
+p.on('console',m=>{if(m.type()==='error')errs.push(m.text())});
+p.on('response',r=>{if(r.status()>=400)failed.push(r.status()+' '+r.url())});
+await p.setViewport({width:1200,height:900,deviceScaleFactor:1});
+const resp=await p.goto(base+'/',{waitUntil:'networkidle0'});
+console.log('HOME STATUS:',resp.status());
+const brokenImgs=await p.$$eval('img',imgs=>imgs.filter(i=>i.complete&&i.naturalWidth===0).map(i=>i.currentSrc||i.src));
+const links=await p.$$eval('a[href]',as=>[...new Set(as.map(a=>a.href).filter(h=>h.includes('ruthwik-data.github.io')))]);
+await p.addStyleTag({content:'*{animation-delay:0s!important;animation-duration:0s!important;opacity:1!important;transform:none!important}'});
+await new Promise(r=>setTimeout(r,500));
+await p.screenshot({path:'/tmp/live_top.png',clip:{x:0,y:0,width:1200,height:900}});
+const res=[];
+for(const l of links){const r=await p.goto(l,{waitUntil:'domcontentloaded'}).catch(()=>null);res.push((r?r.status():'ERR')+'  '+l.replace(base,''))}
+console.log('BROKEN_IMAGES:',brokenImgs.length?brokenImgs:'none');
+console.log('CONSOLE_ERRORS:',errs.length?errs:'none');
+console.log('FAILED_REQUESTS:',failed.length?[...new Set(failed)]:'none');
+console.log('INTERNAL LINKS:');res.forEach(r=>console.log('  '+r));
+await b.close();

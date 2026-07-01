@@ -32,16 +32,16 @@ export const socialLinks: SocialLink[] = [
 export const homePageContent: HomePageContent = {
   seo: {
     title: "Ruthwik Arepelly | AI Product Manager",
-    description: "AI Product Manager focused on 0→1 evaluation-driven AI products in B2B SaaS and fintech.",
+    description: "AI Product Manager & former founder building evaluation-first AI products — RAG, agents, and LLM evals. Open-source contributor to DeepEval, LlamaIndex & Phoenix.",
     image: identity.logo,
   },
   heroHeading: "Building 0→1 AI Products",
-  heroBioFirstLine: "I'm an AI Product Manager focused on building early-stage AI products.",
-  heroBioSecondLine: "I focus on shipping reliable, evaluation-first AI applications—including RAG systems, agents, and decision-support tools—where observability and unit economics are first-class constraints.",
+  heroBioFirstLine: "Former founder and AI Product Manager with 7+ years building production AI systems.",
+  heroBioSecondLine: "I take LLM pipelines from prototype to production—RAG systems, agents, and eval-first tools where reliability and unit economics are first-class—and contribute the fixes back to open-source eval frameworks like DeepEval, LlamaIndex, and Phoenix.",
   heroProofPoints: [
-    "Built evaluation-driven LLM systems for real-world workflows",
-    "Designed GPT-4o Vision pipelines for document and receipt extraction",
-    "Building AI products, prototypes, and experiments in public",
+    "Scaled a B2B fintech from zero to $100K ARR as founder",
+    "Shipped production LLM systems—RAG, agents, GPT-4o Vision, and eval frameworks",
+    "Open-source contributor: merged a fix into DeepEval; PRs to LlamaIndex, Mastra & Phoenix",
   ],
   socialLinks: socialLinks,
   strategyPieces: [
@@ -82,7 +82,7 @@ export const aboutPageContent: AboutPageContent = {
   subtitle: "AI Product Manager — B2B SaaS, Fintech, Evaluation-Driven Systems",
   about: {
     bioFirstLine: "Former founder and AI Product Manager with 7+ years building high-trust AI systems.",
-    bioSecondLine: "I move LLM pipelines from prototype to production (68% → 91% acceptance), protect engineering runway by killing low-value features, and scaled a B2B fintech platform from zero to $100K ARR. I build RAG pipelines, LLM evaluation frameworks, and agentic workflows — with the product discipline to know when *not* to ship AI.",
+    bioSecondLine: "I move LLM pipelines from prototype to production (68% → 91% acceptance), protect engineering runway by killing low-value features, and scaled a B2B fintech platform from zero to $100K ARR. I build RAG pipelines, LLM evaluation frameworks, and agentic workflows — and contribute back to open-source AI eval tools, with a merged fix in DeepEval and PRs to LlamaIndex, Mastra, and Phoenix.",
     image_l: { url: "/profile.jpg", alt: "Ruthwik Arepelly" },
     image_r: { url: "/profile.jpg", alt: "Ruthwik Arepelly" },
   },
