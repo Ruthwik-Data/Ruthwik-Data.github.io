@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { homePageContent, identity, skillCategories, projectsPageContent, aboutPageContent, socialLinks, openSourceContributions, hiringStatus, education } from "../config";
+import { homePageContent, identity, skillCategories, projectsPageContent, aboutPageContent, socialLinks, openSourceContributions, hiringStatus, education, certifications } from "../config";
 import SocialLink from "../components/SocialLink.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import AILabCard from "../components/AILabCard.astro";
@@ -249,20 +249,32 @@ const featuredProject = projectsPageContent.projects.find(p => p.id === 'sugarsh
     </div>
   </section>
 
-  {/* 6b. EDUCATION */}
-  {education.length > 0 && (
+  {/* 6b. EDUCATION & CERTIFICATIONS */}
+  {(education.length > 0 || certifications.length > 0) && (
     <section class="max-w-4xl mx-auto px-6 mb-32 opacity-0 translate-y-4 animate-[fade-in_0.8s_ease-out_0.65s_forwards]">
-      <h2 class="font-bold text-3xl text-white mb-8">Education</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {education.map((edu) => (
-          <div class="p-6 bg-zinc-900/50 border border-white/5 rounded-2xl">
-            <h3 class="text-lg font-bold text-white leading-snug">{edu.degree}</h3>
-            <p class="text-zinc-400 text-sm mt-1">{edu.school}</p>
-            <p class="text-zinc-600 text-xs mt-2 uppercase tracking-widest">{edu.date}</p>
-            {edu.detail && <p class="text-zinc-500 text-sm mt-3 leading-relaxed">{edu.detail}</p>}
-          </div>
-        ))}
-      </div>
+      <h2 class="font-bold text-3xl text-white mb-8">Education & Certifications</h2>
+      {education.length > 0 && (
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {education.map((edu) => (
+            <div class="p-6 bg-zinc-900/50 border border-white/5 rounded-2xl">
+              <h3 class="text-lg font-bold text-white leading-snug">{edu.degree}</h3>
+              <p class="text-zinc-400 text-sm mt-1">{edu.school}</p>
+              {edu.date && <p class="text-zinc-600 text-xs mt-2 uppercase tracking-widest">{edu.date}</p>}
+              {edu.detail && <p class="text-zinc-500 text-sm mt-3 leading-relaxed">{edu.detail}</p>}
+            </div>
+          ))}
+        </div>
+      )}
+      {certifications.length > 0 && (
+        <div class="flex flex-wrap gap-2.5 mt-6">
+          {certifications.map((cert) => (
+            <span class="inline-flex items-center gap-2 text-sm text-zinc-300 font-medium px-4 py-2 bg-white/5 rounded-full border border-white/5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400 shrink-0"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>
+              {cert}
+            </span>
+          ))}
+        </div>
+      )}
     </section>
   )}
 

@@ -81,47 +81,61 @@ export const aboutPageContent: AboutPageContent = {
   },
   subtitle: "AI Product Manager — B2B SaaS, Fintech, Evaluation-Driven Systems",
   about: {
-    bioFirstLine: "I'm an AI Product Manager focused on building early-stage AI products.",
-    bioSecondLine: "My work centers on designing evaluation-driven AI applications — including RAG systems, agents, and decision-support tools — with a strong focus on reliability and practical product design.",
+    bioFirstLine: "Former founder and AI Product Manager with 7+ years building high-trust AI systems.",
+    bioSecondLine: "I move LLM pipelines from prototype to production (68% → 91% acceptance), protect engineering runway by killing low-value features, and scaled a B2B fintech platform from zero to $100K ARR. I build RAG pipelines, LLM evaluation frameworks, and agentic workflows — with the product discipline to know when *not* to ship AI.",
     image_l: { url: "/profile.jpg", alt: "Ruthwik Arepelly" },
     image_r: { url: "/profile.jpg", alt: "Ruthwik Arepelly" },
   },
   work: {
-    description: `I build products that bridge the gap between complex AI and real-world value.`,
+    description: `From a zero-to-$100K-ARR fintech to production LLM systems — I build products where reliability and unit economics are first-class constraints.`,
     items: [
       {
         title: "AI Product Manager",
-        company: "Stealth AI",
-        date: "2024 — Present",
+        company: "Community Dreams",
+        date: "2026 — Present",
+        location: "Tampa, FL",
         icon: "mdi:robot-outline",
         description: [
-          "Led product development for AI-powered systems and internal tooling",
-          "Designed evaluation-driven workflows for LLM features",
-          "Defined product metrics around reliability, latency, and cost efficiency",
-          "Collaborated with engineering teams to ship AI capabilities into production",
+          "Shipped an AI chatbot that replaced spreadsheet/email program tracking for a 6-person team, recovering 60+ hours/month (~950 hours/year)",
+          "Led the design of a RAG grounding layer (chunking, tagging schema, retrieval) that eliminated hallucinations and gave staff instant, sourced citations",
+          "Built n8n automation surfacing 5–10 data-integrity issues/week and consolidated status, AI recommendations, and next steps into one decision workspace",
+        ],
+      },
+      {
+        title: "AI Product Manager",
+        company: "Stealth AI",
+        date: "2024 — 2026",
+        location: "San Francisco, CA",
+        icon: "mdi:receipt-text-outline",
+        description: [
+          "Killed a contact-enrichment feature after discovery showed 80% of value came from follow-up reminders — saving ~$40K before a line of production code",
+          "Grew user acceptance from 68% to 91% by shipping a reasoning-transparency layer with confidence indicators (validated across 25+ interviews)",
+          "Cut AI operating costs 40% with a hybrid OCR + Vision/LLM pipeline — 60% less correction time, ~4s per receipt across 20 receipts / 172 line items",
+          "Built SugarShield (precision 1.00, recall 0.77, FPR 0.00 on a 15-product set) with a human-in-the-loop gate for production readiness",
         ],
       },
       {
         title: "Product Manager",
         company: "Digital Connect",
         date: "2018 — 2023",
-        icon: "mdi:finance",
+        location: "Hyderabad, India",
+        icon: "mdi:office-building-outline",
         description: [
-          "Managed product roadmap for fintech platform services",
-          "Led cross-functional collaboration across engineering, design, and operations",
-          "Implemented data-driven prioritization and experimentation",
-          "Delivered improvements in usability and product adoption",
+          "Consolidated 4 vendors (payments, records, websites) into one platform with an 8-person team — cut reconciliation from 7 days to same-day for 10,000+ students",
+          "Shipped ecommerce with UPI integration that moved 35% of orders online and cut duplicate operational costs ~25%",
+          "Drove 8 end-to-end digital launches (websites, ticketing, payment gateways) processing 50,000+ registrations; retained 80% of clients through COVID shutdowns",
         ],
       },
       {
         title: "Co-Founder & Head of Product",
         company: "Photon Edu Fintech",
         date: "2016 — 2018",
-        icon: "mdi:school-outline",
+        location: "Hyderabad, India",
+        icon: "mdi:rocket-launch-outline",
         description: [
-          "Co-founded and built an education-focused fintech platform",
-          "Led product design, roadmap, and go-to-market strategy",
-          "Built MVP and scaled early product adoption",
+          "Co-founded a B2B SaaS edtech/payments platform, scaling from zero to 75+ schools, 10,000+ students, and $100K ARR with a 5-person team",
+          "Secured $100K ARR by diagnosing a 38% payment-failure rate and executing an emergency provider migration during peak enrollment",
+          "Ran research across 20+ institutions and shipped features that cut administrative workload 40%, establishing strong product-market fit",
         ],
       },
     ],
@@ -530,13 +544,20 @@ export const hiringStatus = {
   headline: "Open to AI Product Manager roles",
   focus: "RAG · agents · eval-first LLM products — B2B SaaS & fintech",
   availability: "Available now",
-  location: "", // e.g. "Bengaluru, India · Open to remote & relocation"
-  resumeUrl: "", // e.g. "/docs/ruthwik-arepelly-resume.pdf" — drop the PDF in public/docs/ and set this
+  location: "Tampa, FL · Open to remote",
+  resumeUrl: "/docs/ruthwik-arepelly-resume.pdf",
 };
 
 // Education — add entries to make the section appear (renders nothing while empty).
-export const education: { degree: string; school: string; date: string; detail?: string }[] = [
-  // { degree: "B.Tech, Computer Science", school: "Your University", date: "2012 — 2016", detail: "Optional one-liner" },
+export const education: { degree: string; school: string; date?: string; detail?: string }[] = [
+  { degree: "MS, Business Analytics", school: "Trine University" },
+  { degree: "BS, Computer Science", school: "SR University" },
+];
+
+// Certifications — rendered as pills under Education (hidden while empty).
+export const certifications: string[] = [
+  "Project Management Professional (PMP), PMBOK7",
+  "IBM Data Analytics (Coursera)",
 ];
 
 export const skillCategories = [
