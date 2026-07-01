@@ -81,8 +81,8 @@ export const aboutPageContent: AboutPageContent = {
   },
   subtitle: "AI Product Manager — B2B SaaS, Fintech, Evaluation-Driven Systems",
   about: {
-    bioFirstLine: "I started out as a founder — and I still build AI like one: obsessed with what's real, not with what demos well.",
-    bioSecondLine: "Co-founding a fintech taught me that shipping is the easy part and earning trust is the hard part. That's what pulled me toward evaluation — proving an AI system actually works before anyone bets on it. Today I take LLM pipelines from prototype to production, kill the features that don't earn their runway, and contribute the fixes back to open-source eval tools like DeepEval. I build and write in public, because the fastest way to learn this space is out loud.",
+    bioFirstLine: "I started as a founder, and I still build AI like one — obsessed with what's real, not what demos well.",
+    bioSecondLine: "Co-founding a fintech taught me that shipping is easy and trust is hard, which is why I fell for evaluation: proving a system works before anyone bets on it. I take LLM pipelines from prototype to production, cut features that don't earn their runway, and push fixes back to open-source eval tools like DeepEval. I build in public — it's the fastest way to learn.",
     image_l: { url: "/profile.jpg", alt: "Ruthwik Arepelly" },
     image_r: { url: "/profile.jpg", alt: "Ruthwik Arepelly" },
   },
