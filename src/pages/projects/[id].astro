@@ -110,10 +110,28 @@ const { project } = Astro.props;
       </div>
     )}
 
+    {/* 3b. Key stats strip (metric + tech stack) */}
+    <div class={`grid gap-6 mb-16 ${project.metric ? 'md:grid-cols-2' : 'grid-cols-1'}`}>
+      {project.metric && (
+        <div class="bg-black/40 p-6 rounded-3xl border border-emerald-500/20 flex flex-col justify-center">
+          <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-[0.2em] mb-3">Headline Metric</h3>
+          <span class="block text-3xl font-bold text-emerald-400 mb-1 leading-tight">{project.metric.split(' ')[0]}</span>
+          <span class="text-sm font-medium text-zinc-300 block">{project.metric.split(' ').slice(1).join(' ')}</span>
+        </div>
+      )}
+      <div class="bg-zinc-900/50 p-6 rounded-3xl border border-white/5 flex flex-col justify-center">
+        <h3 class="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em] mb-4">Tech Stack</h3>
+        <div class="flex flex-wrap gap-2">
+          {project.techStack.map((t: string) => (
+            <span class="px-3 py-1.5 bg-zinc-900 text-zinc-300 text-[11px] font-mono border border-zinc-800 rounded-lg shadow-inner shadow-white/5">{t}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+
     {/* 4. Case Study Content */}
-    <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-12">
-      <div class="space-y-16">
-        
+    <div class="space-y-16">
+
         {/* Project Overview (Briefly already in header, but user requested consistent headers) */}
         {project.overview && project.overview.length > 0 && (
           <section class="bg-white/5 p-8 rounded-3xl border border-white/5">
@@ -259,32 +277,6 @@ const { project } = Astro.props;
           )}
         </section>
       </div>
-
-      <aside class="space-y-12">
-        {project.metric && (
-          <div>
-            <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-[0.2em] mb-4">Headline Metric</h3>
-            <div class="bg-black/40 p-6 rounded-3xl border border-emerald-500/20">
-              <span class="block text-3xl font-bold text-emerald-400 mb-2 leading-none">
-                {project.metric.split(' ')[0]}
-              </span>
-              <span class="text-sm font-medium text-zinc-300 block">
-                {project.metric.split(' ').slice(1).join(' ')}
-              </span>
-            </div>
-          </div>
-        )}
-
-        <div>
-           <h3 class="text-xs font-bold text-zinc-500 uppercase tracking-[0.2em] mb-4">Tech Stack</h3>
-           <div class="flex flex-wrap gap-2">
-             {project.techStack.map((t: string) => (
-               <span class="px-3 py-1.5 bg-zinc-900 text-zinc-300 text-[11px] font-mono border border-zinc-800 rounded-lg shadow-inner shadow-white/5">{t}</span>
-             ))}
-           </div>
-        </div>
-      </aside>
-    </div>
   </div>
 
   {/* Lightbox Modal */}
